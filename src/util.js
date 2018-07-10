@@ -475,12 +475,12 @@ export function set (object, path, value, cb = null) {
 
 export function get (object, path) {
   const sections = path.split('.')
-  for (const section of sections) {
+  sections.forEach(function (section) {
     object = object[section]
     if (!object) {
       return undefined
     }
-  }
+  })
   return object
 }
 
